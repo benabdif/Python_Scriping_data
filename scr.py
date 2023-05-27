@@ -14,7 +14,6 @@ def myana(page_analys):
    
     
     last_info = []
-
     
     def get_all_info(myanaltys_is_1,myanaltys_is):
         
@@ -23,20 +22,27 @@ def myana(page_analys):
 
 
         num_of_goals = len(all_goals_name)
-        num = 0
+        num_gols_in = []
+        
         for x in range(num_of_goals):
             name_of_players = all_goals_name[x].find('div', {'class':'name'}).find('p').text.strip()
             name_of_cluop = all_goals_name[x].find('div', {'class':'name'}).find('a').text.strip()
             number_goals_me = all_goals_name[x].find('div', {'class':'num'}).find('p').text.strip()
-            # num = num + 1 
+            num_gols_in.append(number_goals_me)
+            
             last_info.append({'Name of Players': name_of_cluop, 'Clup': name_of_players, 'Golse': number_goals_me})
-            # x = last_info[x].values()
-            # print(x)
         
-        # kesy = last_info[1].keys()
+      
             kesy = last_info[x].values()
-            # print(kesy)
-       
+           
+            
+            
+        # get the totals of goals
+        int_of_number = [int(num) for num in num_gols_in]
+        total_of_goals = sum(int_of_number)
+        
+        
+               
     get_all_info(myanaltys_is_1[0], myanaltys_is[0])
     
     
